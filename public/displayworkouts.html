@@ -1,0 +1,33 @@
+<!-- Super basic HTML page  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Tracker</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #workout-list {
+      list-style: none;
+      padding: 0;
+    }
+    .workout-item {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Workout Tracker</h1>
+  <button id="load-workouts">Load Workouts</button>
+  <ul id="workout-list"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script type="module" src="fetchWorkouts.js"></script>
+</body>
+</html>

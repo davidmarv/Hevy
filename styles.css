@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+#loading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#workouts-container {
+    margin-top: 2rem;
+}
+
+#workouts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.workout-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.workout-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: #6200ea;
+}
+
+.workout-details {
+    margin: 0.5rem 0;
+}
+
+.workout-exercises {
+    margin-top: 1rem;
+}
+
+.exercise {
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.exercise h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #6200ea;
+    color: #fff;
+    margin-top: 2rem;
+}
