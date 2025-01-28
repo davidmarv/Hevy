@@ -1,8 +1,10 @@
-require('dotenv').config(); // Load environment variables from .env
+//test file to make sure api key is working
+
+require('dotenv').config(); 
 const axios = require('axios');
 
 const fetchWorkouts = async () => {
-    const apiKey = process.env.HEVY_API_KEY; // Access the API key from .env
+    const apiKey = process.env.HEVY_API_KEY; 
 
     if (!apiKey) {
         console.error('API Key is missing');
@@ -10,10 +12,11 @@ const fetchWorkouts = async () => {
     }
 
     try {
+        //pre made endpoint
         const response = await axios.get('https://api.hevyapp.com/v1/workouts?page=1&pageSize=5', {
             headers: {
                 'accept': 'application/json',
-                'api-key': apiKey, // Use 'api-key' header instead of 'Authorization'
+                'api-key': apiKey, 
             },
         });
 
