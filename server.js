@@ -1,5 +1,3 @@
-//http://localhost:3000/displayworkouts.html
-//super basic server to run it on 
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
@@ -7,7 +5,7 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
-app.use(express.static('public')); // Serve static files (HTML, JS)
+app.use(express.static('public')); 
 
 app.get('/workouts', async (req, res) => {
     const apiKey = process.env.HEVY_API_KEY;
@@ -17,8 +15,15 @@ app.get('/workouts', async (req, res) => {
         return;
     }
 
+    const page = req.query.page || 1; 
+    const pageSize = req.query.pageSize || 10; 
+
     try {
-        const response = await axios.get('https://api.hevyapp.com/v1/workouts?page=1&pageSize=10', {
+        const response = await axios.get('https://api.hevyapp.com/v1/workouts', {
+            params: {
+                page,
+                pageSize,
+            },
             headers: {
                 'accept': 'application/json',
                 'api-key': apiKey,
