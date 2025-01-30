@@ -49,17 +49,17 @@ const renderWorkouts = () => {
     const paginatedWorkouts = allWorkouts.slice(start, end);
 
     paginatedWorkouts.forEach(workout => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('workout-item');
-        
-        listItem.innerHTML = `
-            <h3>${workout.title}</h3>
+        const card = document.createElement('div');
+        card.classList.add('workout-card');
+
+        card.innerHTML = `
+            <h3 class="workoutTitle">${workout.title}</h3>
             <p><strong>Description:</strong> ${workout.description}</p>
             <p><strong>Start Time:</strong> ${new Date(workout.start_time).toLocaleString()}</p>
             <p><strong>End Time:</strong> ${new Date(workout.end_time).toLocaleString()}</p>
-            <ul>
+            <ul class="exercise-list">
                 ${workout.exercises.map(exercise => `
-                    <li>
+                    <li class="exercise-item">
                         <strong>${exercise.title}</strong><br>
                         <strong>Weight:</strong> ${exercise.sets.map(set => set.weight_kg ? set.weight_kg.toFixed(2) : 'N/A').join(', ')} kg<br>
                         <strong>Reps:</strong> ${exercise.sets.map(set => set.reps ? set.reps : 'N/A').join(', ')}
@@ -67,8 +67,8 @@ const renderWorkouts = () => {
                 `).join('')}
             </ul>
         `;
-        
-        workoutList.appendChild(listItem);
+
+        workoutList.appendChild(card);
     });
 
     // Update button states
@@ -76,10 +76,21 @@ const renderWorkouts = () => {
     nextBtn.disabled = end >= allWorkouts.length;
 };
 
+// Create pagination container
+const paginationContainer = document.createElement('div');
+paginationContainer.style.textAlign = 'center';
+paginationContainer.style.marginTop = '20px';
+
 // Add Pagination Buttons
 const prevBtn = document.createElement('button');
 prevBtn.textContent = "Previous";
 prevBtn.disabled = true;
+prevBtn.style.backgroundColor = "green";
+prevBtn.style.color = "white";
+prevBtn.style.padding = "5px";
+prevBtn.style.margin = "5px";
+prevBtn.style.border = "none";
+prevBtn.style.cursor = "pointer";
 prevBtn.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
@@ -90,6 +101,12 @@ prevBtn.addEventListener('click', () => {
 const nextBtn = document.createElement('button');
 nextBtn.textContent = "Next";
 nextBtn.disabled = true;
+nextBtn.style.backgroundColor = "green";
+nextBtn.style.color = "white";
+nextBtn.style.padding = "5px";
+nextBtn.style.margin = "5px";
+nextBtn.style.border = "none";
+nextBtn.style.cursor = "pointer";
 nextBtn.addEventListener('click', () => {
     if ((currentPage * itemsPerPage) < allWorkouts.length) {
         currentPage++;
@@ -97,8 +114,11 @@ nextBtn.addEventListener('click', () => {
     }
 });
 
-// Append buttons below the list
-document.getElementById('load-workouts').after(prevBtn, nextBtn);
+// Append buttons to the pagination container
+paginationContainer.appendChild(prevBtn);
+paginationContainer.appendChild(nextBtn);
+
+document.body.appendChild(paginationContainer);
 
 // Attach event listener to fetch button
 document.getElementById('load-workouts').addEventListener('click', fetchAllWorkouts);
