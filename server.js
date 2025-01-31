@@ -1,4 +1,5 @@
 //http://localhost:3000/displayworkouts.html
+//node server.js
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();

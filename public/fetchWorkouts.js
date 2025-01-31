@@ -1,6 +1,6 @@
 let allWorkouts = []; // Stores all fetched workouts
 let currentPage = 1;
-const itemsPerPage = 5; // Adjust as needed
+const itemsPerPage = 20; // Adjust as needed
 
 const fetchAllWorkouts = async () => {
     try {
