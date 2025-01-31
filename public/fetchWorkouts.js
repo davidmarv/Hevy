@@ -85,12 +85,14 @@ paginationContainer.style.marginTop = '20px';
 const prevBtn = document.createElement('button');
 prevBtn.textContent = "Previous";
 prevBtn.disabled = true;
-prevBtn.style.backgroundColor = "green";
-prevBtn.style.color = "white";
+prevBtn.style.backgroundColor = "#e3faff";
+prevBtn.style.color = "black";
 prevBtn.style.padding = "5px";
 prevBtn.style.margin = "5px";
 prevBtn.style.border = "none";
 prevBtn.style.cursor = "pointer";
+prevBtn.style.borderRadius = "5px"
+prevBtn.style.fontFamily = "Consolas, Courier New, monospace;"
 prevBtn.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
@@ -101,12 +103,14 @@ prevBtn.addEventListener('click', () => {
 const nextBtn = document.createElement('button');
 nextBtn.textContent = "Next";
 nextBtn.disabled = true;
-nextBtn.style.backgroundColor = "green";
-nextBtn.style.color = "white";
+nextBtn.style.backgroundColor = "#e3faff";
+nextBtn.style.color = "black";
 nextBtn.style.padding = "5px";
 nextBtn.style.margin = "5px";
 nextBtn.style.border = "none";
 nextBtn.style.cursor = "pointer";
+nextBtn.style.borderRadius = "5px"
+nextBtn.style.fontFamily = "Consolas, Courier New, monospace;"
 nextBtn.addEventListener('click', () => {
     if ((currentPage * itemsPerPage) < allWorkouts.length) {
         currentPage++;
