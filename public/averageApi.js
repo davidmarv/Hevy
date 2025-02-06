@@ -16,7 +16,7 @@ document.getElementById("calculate-average").addEventListener("click", async () 
                 
                 exercise.sets.forEach(set => {
                     if (set.weight_kg) {
-                        exerciseWeights[exercise.title].totalWeight += set.weight_kg;
+                        exerciseWeights[exercise.title].totalWeight += set.weight_kg * 2.20462; // Convert kg to lbs
                         exerciseWeights[exercise.title].count += 1;
                     }
                 });
@@ -44,7 +44,7 @@ function displayAverages(averages) {
         const listItem = document.createElement("li");
         listItem.classList.add("exercise-item");
 
-        listItem.innerHTML = `<strong>${exercise}:</strong> ${avgWeight} kg`;
+        listItem.innerHTML = `<strong>${exercise}:</strong> ${avgWeight} lbs`; // Display in lbs
         list.appendChild(listItem);
     }
 
